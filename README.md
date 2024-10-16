@@ -1,4 +1,4 @@
-# This project is mainly applicable to image classification,
+# This project is mainly applicable to image classification
 # Environment configuration<br>
    python     3.7<br>
    pytorch    1.10.0<br>
