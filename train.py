@@ -102,24 +102,6 @@ def main(args):
         tb_writer.add_scalar(tags[3], val_acc, epoch)
         tb_writer.add_scalar(tags[4], optimizer.param_groups[0]["lr"], epoch)
 
-        torch.save(model.state_dict(), "./weights/model-{}.pth".format(epoch))
-        if epoch == 49:
-            save_loss_to_file(epoch, train_loss, val_loss, file_name="loss_epoch_49.txt")
-def save_loss_to_file(epoch, train_loss, val_loss, file_name="loss_epoch_49.txt"):
-    """
-    保存第49轮的训练和验证损失到一个txt文件中。
-
-    :param epoch: 当前轮次
-    :param train_loss: 训练损失
-    :param val_loss: 验证损失
-    :param file_name: 保存的文件名
-    """
-    if epoch == 49:
-        with open(file_name, 'w') as f:
-            f.write(f"Epoch: {epoch}\n")
-            f.write(f"Train Loss: {train_loss:.4f}\n")
-            f.write(f"Validation Loss: {val_loss:.4f}\n")
-        print(f"Losses for epoch {epoch} saved to {file_name}")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
